@@ -1,19 +1,25 @@
 from django.urls import path
 from .views import (
-    RandomCharacterView,
-    RandomQuoteView,
-    RandomSettingView,
-    RandomPlotView,
+    CharacterView, 
+    QuoteView, 
+    SettingView, 
+    RandomPlotView
 )
 
-urlpatterns = [
-    path('api/characters/random/', RandomCharacterView.as_view(), name='random-character'),
-    path('api/characters/<int:pk>/', RandomCharacterView.as_view(), name='update-character'),  # For PUT
-    path('api/quotes/random/', RandomQuoteView.as_view(), name='random-quote'),
-    path('api/quotes/<int:pk>/', RandomQuoteView.as_view(), name='update-quote'),  # For PUT
-    path('api/settings/random/', RandomSettingView.as_view(), name='random-setting'),
-    path('api/settings/<int:pk>/', RandomSettingView.as_view(), name='update-setting'),  # For PUT
-    path('api/plots/random/', RandomPlotView.as_view(), name='random-plot'),
-    path('api/plots/', RandomPlotView.as_view(), name='create-plot'),  # For POST (optional use case)
-]
 
+urlpatterns = [
+    # Character Endpoints
+    path('characters/', CharacterView.as_view()),  # List and Create Characters
+    path('characters/<int:pk>/', CharacterView.as_view()),  # Retrieve and Update a specific Character
+
+    # Quote Endpoints
+    path('quotes/', QuoteView.as_view()),  # List and Create Quotes
+    path('quotes/<int:pk>/', QuoteView.as_view()),  # Retrieve and Update a specific Quote
+
+    # Setting Endpoints
+    path('settings/', SettingView.as_view()),  # List and Create Settings
+    path('settings/<int:pk>/', SettingView.as_view()),  # Retrieve and Update a specific Setting
+
+    # Plot Generator Endpoint
+    path('plots/', RandomPlotView.as_view()),  # Generate a Random Plot
+]
