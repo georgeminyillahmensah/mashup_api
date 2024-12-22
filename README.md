@@ -135,7 +135,7 @@ plot-generator-api/
 │   ├── serializers.py
 │   ├── views.py
 │   ├── urls.py
-├── plot_generator/
+├── mashup_api/
 │   ├── settings.py
 │   ├── urls.py
 │   ├── wsgi.py
